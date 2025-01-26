@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Loan Status Prediction</title>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Loan Status Prediction</h1>
+        <p>
+          Get an instant prediction on your loan approval status. Just fill in
+          the details below and let us help you.
+        </p>
+      </div>
+    </section>
+
+    <section class="loan-form">
+      <div class="form-container">
+        <form action="/predict" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="Gender">Gender:</label>
+              <select name="Gender" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Married">Marital Status:</label>
+              <select name="Married" required>
+                <option value="1">Married</option>
+                <option value="0">Unmarried</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="Dependents">Number of Dependents:</label>
+              <select name="Dependents" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">3+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Education">Education:</label>
+              <select name="Education" required>
+                <option value="1">Graduate</option>
+                <option value="0">Not Graduate</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="Self_Employed">Self Employed:</label>
+              <select name="Self_Employed" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ApplicantIncome">Applicant Income:</label>
+              <input
+                type="number"
+                name="ApplicantIncome"
+                placeholder="Enter your income"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="CoapplicantIncome">Coapplicant Income:</label>
+              <input
+                type="number"
+                name="CoapplicantIncome"
+                placeholder="Enter co-applicant's income"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="LoanAmount">Loan Amount (in thousands):</label>
+              <input
+                type="number"
+                name="LoanAmount"
+                placeholder="Enter loan amount"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="Loan_Amount_Term">Loan Term (in months):</label>
+              <input
+                type="number"
+                name="Loan_Amount_Term"
+                placeholder="Enter loan term"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Credit_History">Credit History:</label>
+              <select name="Credit_History" required>
+                <option value="1">Good</option>
+                <option value="0">Bad</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="Property_Area">Property Area:</label>
+              <select name="Property_Area" required>
+                <option value="0">Rural</option>
+                <option value="1">Semiurban</option>
+                <option value="2">Urban</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Predict Loan Status</button>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const starContainer = document.createElement("div");
+      starContainer.classList.add("stars");
+      document.body.appendChild(starContainer);
+
+      function createStars() {
+        for (let i = 0; i < 50; i++) {
+          const star = document.createElement("div");
+          star.classList.add("star");
+          if (Math.random() > 0.8) {
+            star.classList.add("large");
+          }
+          const left = Math.random() * 100 + "%";
+          const top = Math.random() * 100 + "%";
+          star.style.left = left;
+          star.style.top = top;
+          starContainer.appendChild(star);
+        }
+      }
+
+      createStars();
+      setInterval(createStars, 2000);
+    });
+  </script>
+</html>
